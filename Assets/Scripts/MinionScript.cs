@@ -8,9 +8,11 @@ public class MinionScript : MonoBehaviour
     private float _walkSpeed;
     private float _workSpeed;
     private bool _workFinished = false;
+    private Animator _animator;
     void Awake()
     {
         _sectionScript = transform.parent.GetComponent<SectionManagementScript>();
+        _animator = GetComponent<Animator>();
         setAllValues(0);
     }
 
@@ -22,6 +24,7 @@ public class MinionScript : MonoBehaviour
     {
         _workSpeed = _sectionScript.MinionWorkSpeed[i];
         _walkSpeed = _sectionScript.MinionMovementSpeed[i];
+        _animator.speed = _walkSpeed;
     }
 
     private void goAndGetTrash()
