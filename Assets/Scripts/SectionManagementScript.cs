@@ -10,7 +10,9 @@ public class SectionManagementScript : MonoBehaviour
     public float[] TrashWorth;
     public float[] TrashWorkValue;
     [Header("Minion")]
-    public float[] MinionWorkSpeed;
+    public float[] MinionWorkEff;
     public float[] MinionMovementSpeed;
+    [Header("Other")]
+    public int money;
 
 }

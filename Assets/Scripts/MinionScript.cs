@@ -6,40 +6,82 @@ public class MinionScript : MonoBehaviour
 {
     private SectionManagementScript _sectionScript;
     private float _walkSpeed;
-    private float _workSpeed;
-    private bool _workFinished = false;
-    private Animator _animator;
+    private float _workEff;
+    private TrashScript _trashScript;
+    private float workEffeciency;
+    public float TopY = 3.75f;
+    private float BottomY = -8.3f;
+    private SpriteRenderer _sprite;
+
+    public bool isWorking;
+    public bool isCollectingTrash;
     void Awake()
     {
         _sectionScript = transform.parent.GetComponent<SectionManagementScript>();
-        _animator = GetComponent<Animator>();
+        _trashScript = transform.parent.GetChild(0).GetComponent<TrashScript>();
+        _sprite = GetComponent<SpriteRenderer>(); 
         setAllValues(0);
     }
+    private void Start()
+    {
+    }
+    private void FixedUpdate()
+    {
+        Movement();
+    }
 
+    private void Movement()
+    {
+        if (isWorking == false && isCollectingTrash == true)
+        {            
+            transform.position = new Vector3(transform.position.x, transform.position.y + _walkSpeed, transform.position.z); 
+            if(transform.position.y >= TopY)
+            {
+                isCollectingTrash = false;
+            }
+        }
+        if (isWorking == false && isCollectingTrash == false)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - _walkSpeed, transform.position.z);
+            if (transform.position.y <= BottomY)
+            {
+                isWorking = true;
+            }
+        }
+    }
     void Update()
     {
-        
+
     }
     private void setAllValues(int i)
     {
-        _workSpeed = _sectionScript.MinionWorkSpeed[i];
+        _workEff = _sectionScript.MinionWorkEff[i];
         _walkSpeed = _sectionScript.MinionMovementSpeed[i];
-        _animator.speed = _walkSpeed;
     }
 
-    private void goAndGetTrash()
+    
+    private void OnMouseDown()
     {
-        if (_workFinished)
+        if (isWorking == true)
         {
-            //play animation for movement up to retrieve the trash
+            _trashScript._trashWorkValue -= _workEff;
+            if (_trashScript._trashWorkValue <= 0)
+            {
+                if (_trashScript._trashSprite.sprite == _sectionScript.TrashSprites[0])
+                {
+                    _trashScript._trashSprite.sprite = _sectionScript.TrashSprites[1];
+                }
+                else
+                {
+                    Debug.Log("Recykling");
+                    _trashScript.transform.position = new Vector3(_trashScript.transform.position.x, _trashScript.TopSpawnY, _trashScript.transform.position.z);
+                    _trashScript.IsBeingCollected = false;
+                    _trashScript.IsBeingRecycled = false;
+                    isWorking = false;
+                    isCollectingTrash = true;
+                }
+            }
         }
     }
-    private void workOnTrash()
-    {
-        //check when player clicks on minion and decrease the trashWorkValue
-    }
-    private void goBackWithTrash()
-    {
-        //play the animation of minion coming back to the desk with trash in hands
-    }
+    
 }
