@@ -10,7 +10,7 @@ public class MinionScript : MonoBehaviour
     private TrashScript _trashScript;
     private float workEffeciency;
     public float TopY = 3.75f;
-    private float BottomY = -8.3f;
+    private float BottomY = -7.75f;
     private SpriteRenderer _sprite;
 
     public bool isWorking;
