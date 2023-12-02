@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewMainMenu : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void QuitGame()
+    public void GoToSettingsMenu()
     {
-        Application.Quit();
+        SceneManager.LoadScene("SettingsMenu");
     }
 
     public void GoToMainMenu()
@@ -20,6 +20,8 @@ public class NewMainMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
 
     }
-
-   
+    public void QuitGame()
+    {
+        Debug.Log("FFF");
+    }
 }
