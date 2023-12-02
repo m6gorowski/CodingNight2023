@@ -15,7 +15,7 @@ public class TrashScript : MonoBehaviour
 
     public float TopSpawnY = 10.5f;
     private float BottomSpawnY = 3.8f;
-    private float fallSpeed = 0.01f;
+    private float fallSpeed = 0.25f;
 
     public bool IsBeingRecycled;
     public bool IsBeingCollected;
@@ -25,23 +25,19 @@ public class TrashScript : MonoBehaviour
         _minionScript = transform.parent.GetChild(1).GetComponent<MinionScript>();
         _trashSprite = GetComponent<SpriteRenderer>();
         _trashSprite.sprite = _sectionScript.TrashSprites[0];
-        setAllValues(0);
+        setAllValues();
     }
     private void FixedUpdate()
     {
-        
-    }
-
-    void Update()
-    {
         Movement();
     }
-    private void setAllValues(int i)
+
+    public void setAllValues()
     {
-        _trashName = _sectionScript.TrashName[i];
-        trashWorth = _sectionScript.TrashWorth[i];
-        trashWorkValue = _sectionScript.TrashWorkValue[i];
-        _movementSpeed = _sectionScript.MinionMovementSpeed[i];
+        _trashName = _sectionScript.TrashName[_sectionScript.saves[0]];
+        trashWorth = _sectionScript.TrashWorth[_sectionScript.saves[2]];
+        trashWorkValue = _sectionScript.TrashWorkValue[_sectionScript.saves[3]];
+        _movementSpeed = _sectionScript.MinionMovementSpeed[_sectionScript.saves[4]];
     }
 
     private void Movement()
@@ -50,9 +46,9 @@ public class TrashScript : MonoBehaviour
         {
             _trashSprite.sortingOrder = -1;
             _trashSprite.sprite = _sectionScript.TrashSprites[0];
-            trashWorkValue = _sectionScript.TrashWorkValue[0];
+            trashWorkValue = _sectionScript.TrashWorkValue[_sectionScript.saves[3]];
             transform.position = new Vector3(transform.position.x, transform.position.y - fallSpeed, transform.position.z);
-            fallSpeed *= 1.02f;
+            fallSpeed *= 1.05f;
             if(transform.position.y <= BottomSpawnY)
             {
                 transform.position = new Vector3(transform.position.x, BottomSpawnY, transform.position.z);
@@ -68,12 +64,12 @@ public class TrashScript : MonoBehaviour
             }
             if (_minionScript.isWorking == true)
             {
-                _trashSprite.sortingOrder = 1;
+                _trashSprite.sortingOrder = 2;
                 IsBeingCollected = false;
                 
                 IsBeingRecycled = true;
                 transform.position = new Vector3(transform.position.x, -9.75f, transform.position.z);
-                fallSpeed = 0.01f;
+                fallSpeed = 0.25f;
 
             }
         }

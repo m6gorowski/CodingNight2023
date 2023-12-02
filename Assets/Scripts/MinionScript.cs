@@ -19,8 +19,8 @@ public class MinionScript : MonoBehaviour
     {
         _sectionScript = transform.parent.GetComponent<SectionManagementScript>();
         _trashScript = transform.parent.GetChild(0).GetComponent<TrashScript>();
-        _sprite = GetComponent<SpriteRenderer>(); 
-        setAllValues(0);
+        _sprite = GetComponent<SpriteRenderer>();
+        setAllValues();
     }
     private void Start()
     {
@@ -53,10 +53,10 @@ public class MinionScript : MonoBehaviour
     {
 
     }
-    private void setAllValues(int i)
+    public void setAllValues()
     {
-        _workEff = _sectionScript.MinionWorkEff[i];
-        _walkSpeed = _sectionScript.MinionMovementSpeed[i];
+        _workEff = _sectionScript.MinionWorkEff[_sectionScript.saves[4]];
+        _walkSpeed = _sectionScript.MinionMovementSpeed[_sectionScript.saves[5]];
     }
 
     
@@ -69,11 +69,10 @@ public class MinionScript : MonoBehaviour
             {
                 if (_trashScript._trashSprite.sprite == _sectionScript.TrashSprites[0])
                 {
-                    _trashScript._trashSprite.sprite = _sectionScript.TrashSprites[1];
+                    _trashScript._trashSprite.sprite = _sectionScript.TrashSprites[_sectionScript.saves[0]];
                 }
                 else
                 {
-                    Debug.Log("Recykling");
                     _trashScript.transform.position = new Vector3(_trashScript.transform.position.x, _trashScript.TopSpawnY, _trashScript.transform.position.z);
                     _trashScript.IsBeingCollected = false;
                     _trashScript.IsBeingRecycled = false;
