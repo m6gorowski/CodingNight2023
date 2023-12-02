@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class InteractableButtonsScript : MonoBehaviour
 {
+    private int sectionId;
     public SectionManagementScript SectionManagement;
     private TrashScript _trashScript;
     private MinionScript _minionScript;
@@ -22,6 +23,7 @@ public class InteractableButtonsScript : MonoBehaviour
 
     private void Update()
     {
+        
         CheckCost();   
     }
     public void BuyItem()
