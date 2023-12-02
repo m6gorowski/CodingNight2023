@@ -64,8 +64,8 @@ public class MinionScript : MonoBehaviour
     {
         if (isWorking == true)
         {
-            _trashScript._trashWorkValue -= _workEff;
-            if (_trashScript._trashWorkValue <= 0)
+            _trashScript.trashWorkValue -= _workEff;
+            if (_trashScript.trashWorkValue <= 0)
             {
                 if (_trashScript._trashSprite.sprite == _sectionScript.TrashSprites[0])
                 {
@@ -79,6 +79,7 @@ public class MinionScript : MonoBehaviour
                     _trashScript.IsBeingRecycled = false;
                     isWorking = false;
                     isCollectingTrash = true;
+                    _sectionScript.money += _trashScript.trashWorth;
                 }
             }
         }

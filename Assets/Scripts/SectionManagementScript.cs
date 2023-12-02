@@ -13,6 +13,6 @@ public class SectionManagementScript : MonoBehaviour
     public float[] MinionWorkEff;
     public float[] MinionMovementSpeed;
     [Header("Other")]
-    public int money;
+    public float money;
 
 }

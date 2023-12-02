@@ -7,8 +7,8 @@ public class TrashScript : MonoBehaviour
 {
     private SectionManagementScript _sectionScript;
     private string _trashName;
-    private float _trashWorth;
-    public float _trashWorkValue;
+    public float trashWorth;
+    public float trashWorkValue;
     private float _movementSpeed;
     public SpriteRenderer _trashSprite;
     private MinionScript _minionScript;
@@ -39,8 +39,8 @@ public class TrashScript : MonoBehaviour
     private void setAllValues(int i)
     {
         _trashName = _sectionScript.TrashName[i];
-        _trashWorth = _sectionScript.TrashWorth[i];
-        _trashWorkValue = _sectionScript.TrashWorkValue[i];
+        trashWorth = _sectionScript.TrashWorth[i];
+        trashWorkValue = _sectionScript.TrashWorkValue[i];
         _movementSpeed = _sectionScript.MinionMovementSpeed[i];
     }
 
@@ -50,7 +50,7 @@ public class TrashScript : MonoBehaviour
         {
             _trashSprite.sortingOrder = -1;
             _trashSprite.sprite = _sectionScript.TrashSprites[0];
-            _trashWorkValue = _sectionScript.TrashWorkValue[0];
+            trashWorkValue = _sectionScript.TrashWorkValue[0];
             transform.position = new Vector3(transform.position.x, transform.position.y - fallSpeed, transform.position.z);
             fallSpeed *= 1.02f;
             if(transform.position.y <= BottomSpawnY)
