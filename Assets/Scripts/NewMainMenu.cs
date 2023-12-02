@@ -21,5 +21,8 @@ public class NewMainMenu : MonoBehaviour
 
     }
 
-   
+   public void GoToStartScene()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
