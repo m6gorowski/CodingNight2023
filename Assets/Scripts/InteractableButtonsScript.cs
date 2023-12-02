@@ -19,8 +19,13 @@ public class InteractableButtonsScript : MonoBehaviour
     public TextMeshProUGUI Cost1;
     private bool canBebought = true;
 
-    
+    private MoneyManagementScript _moneyManagementScript;
 
+    private void Awake()
+    {
+
+        _moneyManagementScript = FindObjectOfType<MoneyManagementScript>();
+    }
 
     private void Update()
     {
@@ -56,8 +61,8 @@ public class InteractableButtonsScript : MonoBehaviour
         CheckCost();   
     }
     public void BuyItem()
-    {        
-        SectionManagement.money -= Cost;
+    {
+        _moneyManagementScript.money -= Cost;
         SectionManagement.saves[ShopItemNumber] = ShopItemLevelNumber;
         if(ShopItemNumber == 0)
         {
@@ -86,7 +91,7 @@ public class InteractableButtonsScript : MonoBehaviour
     }
     public void CheckCost()
     {
-        if (Cost <= SectionManagement.money && canBebought)
+        if (Cost <= _moneyManagementScript.money && canBebought)
         {
             Button[] buttons = FindObjectsOfType<Button>();
             foreach(Button btn in buttons)
@@ -98,7 +103,7 @@ public class InteractableButtonsScript : MonoBehaviour
             }
             
         }
-        else if(Cost > SectionManagement.money && canBebought)      
+        else if(Cost > _moneyManagementScript.money && canBebought)      
         {
             Button[] buttons = FindObjectsOfType<Button>();
             foreach (Button btn in buttons)

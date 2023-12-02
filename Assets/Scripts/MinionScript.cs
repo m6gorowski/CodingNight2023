@@ -13,6 +13,8 @@ public class MinionScript : MonoBehaviour
     private float BottomY = -7.75f;
     private SpriteRenderer _sprite;
 
+    private MoneyManagementScript _moneyManagementScript;
+
     public bool isWorking;
     public bool isCollectingTrash;
     void Awake()
@@ -21,6 +23,8 @@ public class MinionScript : MonoBehaviour
         _trashScript = transform.parent.GetChild(0).GetComponent<TrashScript>();
         _sprite = GetComponent<SpriteRenderer>();
         setAllValues();
+
+        _moneyManagementScript = FindObjectOfType<MoneyManagementScript>();
     }
     private void Start()
     {
@@ -78,7 +82,7 @@ public class MinionScript : MonoBehaviour
                     _trashScript.IsBeingRecycled = false;
                     isWorking = false;
                     isCollectingTrash = true;
-                    _sectionScript.money += _trashScript.trashWorth;
+                    _moneyManagementScript.money += _trashScript.trashWorth;
                 }
             }
         }

@@ -784,8 +784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c6e564d18d5fe438666f2c1c4480eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trashWorth: 0
-  trashWorkValue: 0
+  trashWorth: 1
+  trashWorkValue: 3
   _trashSprite: {fileID: 0}
   TopSpawnY: 10.5
   IsBeingRecycled: 1
@@ -946,7 +946,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464664320}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -8.3, z: 0}
+  m_LocalPosition: {x: 0, y: -7.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1035,8 +1035,8 @@ SpriteRenderer:
   m_SortingLayerID: 423570247
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 14b1a8e2b8f3cbf4b8f6c4a81564f3ce, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0c9269cfc3c125b4daccc2a93e7983f7, type: 3}
+  m_Color: {r: 1, g: 0.9533913, b: 0.6094339, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2148,6 +2148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyText: {fileID: 807885476}
+  money: 0
 --- !u!1 &916353853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,7 +3107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1649687191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3121,10 +3122,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   TrashSprites:
-  - {fileID: 21300000, guid: 98846faa01bee934380bf30e3bfa6dda, type: 3}
-  - {fileID: 21300000, guid: 2e689096be0b8924f9bb64be3c477b4b, type: 3}
-  - {fileID: 21300000, guid: 8c1148219b2c1fe43a12e6c5c72de0b5, type: 3}
-  - {fileID: 21300000, guid: 0cc365872d5aa4d47ad0eea60ec8a3ce, type: 3}
+  - {fileID: 21300000, guid: 9072f7f71670ee743bedb265a39a3201, type: 3}
+  - {fileID: 21300000, guid: a0f77524ba09d1d429d6fa52b46ec6b3, type: 3}
+  - {fileID: 21300000, guid: d9c858d6cd3a13642a3f03a56c4b84bf, type: 3}
+  - {fileID: 21300000, guid: d8048be2ab09a22459eb344833c5a264, type: 3}
   TrashName:
   - Glass Shards
   - Bottle
@@ -3343,7 +3344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1707327449
 RectTransform:
   m_ObjectHideFlags: 0

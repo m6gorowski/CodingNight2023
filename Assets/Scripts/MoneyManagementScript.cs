@@ -8,6 +8,7 @@ public class MoneyManagementScript : MonoBehaviour
 {
     private SectionManagementScript _sectionScript;
     public TextMeshProUGUI MoneyText;
+    public float money;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class MoneyManagementScript : MonoBehaviour
     }
     private void Update()
     {
-        MoneyText.text = "$: " + _sectionScript.money.ToString();
+        
+        MoneyText.text = "$: " + money;
     }
 }
