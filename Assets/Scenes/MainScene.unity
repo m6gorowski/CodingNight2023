@@ -357,6 +357,7 @@ RectTransform:
   m_Children:
   - {fileID: 916353854}
   - {fileID: 1738266512}
+  - {fileID: 1865743402}
   m_Father: {fileID: 1707327449}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -408,7 +409,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 115934919}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 115934921}
+        m_TargetAssemblyTypeName: InteractableButtonsScript, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &115934919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,10 +472,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d871d59fe492b4c8e53d401c8aa611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SectionManagement: {fileID: 0}
-  ShopItemLevelNumber: 0
+  section: {fileID: 1865743403}
+  ShopItemLevelNumber: 2
   ShopItemNumber: 0
-  Cost: 0
+  Cost: 10
+  Cost1: {fileID: 1738266513}
 --- !u!1 &182619338
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10$
+  m_text: 25$
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1347,7 +1361,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 536946561}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 536946563}
+        m_TargetAssemblyTypeName: InteractableButtonsScript, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &536946561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1398,10 +1424,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d871d59fe492b4c8e53d401c8aa611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SectionManagement: {fileID: 0}
+  section: {fileID: 1865743403}
   ShopItemLevelNumber: 1
   ShopItemNumber: 4
   Cost: 25
+  Cost1: {fileID: 182619340}
 --- !u!1 &547916501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3316,7 +3343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1707327449
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3331,7 +3358,6 @@ RectTransform:
   m_Children:
   - {fileID: 536946559}
   - {fileID: 115934917}
-  - {fileID: 1865743402}
   - {fileID: 1883256730}
   m_Father: {fileID: 882616317}
   m_RootOrder: 1
@@ -3437,7 +3463,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 25$
+  m_text: 10$
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4060,7 +4086,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865743401}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4068,12 +4094,12 @@ RectTransform:
   - {fileID: 1327336726}
   - {fileID: 1667492349}
   - {fileID: 2112750730}
-  m_Father: {fileID: 1707327449}
+  m_Father: {fileID: 115934917}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -400}
+  m_AnchoredPosition: {x: 129.99998, y: 1001.30457}
   m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1865743403
@@ -4281,7 +4307,7 @@ RectTransform:
   m_Children:
   - {fileID: 2069588459}
   m_Father: {fileID: 1707327449}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
